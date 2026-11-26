@@ -1,0 +1,15 @@
+{
+  "name": "veristrux-marketplace",
+  "owner": {
+    "name": "Veristrux Inc.",
+    "email": "argoness@veristrux.com"
+  },
+  "plugins": [
+    {
+      "name": "iron-veil",
+      "source": "./",
+      "description": "Zero-dependency <5ms PreToolUse sanitizer & repo trap quarantiner (Pro Kit $5 at https://argoness-prime.github.io/veristrux/).",
+      "version": "1.1.0"
+    }
+  ]
+}

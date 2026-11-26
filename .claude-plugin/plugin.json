@@ -1,0 +1,20 @@
+{
+  "name": "iron-veil",
+  "version": "1.1.0",
+  "description": "Zero-dependency <5ms PreToolUse indirect prompt-injection sanitizer, repo trap quarantiner, and Token Miser AST guard for Claude Code.",
+  "author": {
+    "name": "Veristrux Inc.",
+    "email": "argoness@veristrux.com",
+    "url": "https://argoness-prime.github.io/veristrux/"
+  },
+  "homepage": "https://argoness-prime.github.io/veristrux/",
+  "repository": "https://github.com/argoness-prime/iron-veil",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "pretooluse",
+    "security",
+    "prompt-injection",
+    "token-optimization"
+  ]
+}
