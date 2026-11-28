@@ -71,8 +71,46 @@ def main(argv: list[str] | None = None) -> int:
     p_s.add_argument("--strip-html", action="store_true")
     p_q = sub.add_parser("quarantine-repo", help="Disarm Priority-1 agent/git traps in an untrusted repo")
     p_q.add_argument("repo_dir")
+    p_x = sub.add_parser(
+        "xray",
+        help="Offline audit of local Claude Code transcripts for read bloat & prompt-cache idle cliffs",
+    )
+    p_x.add_argument("path", nargs="?", default=None, help="Transcript dir or .jsonl file (default: ~/.claude/projects)")
+    p_x.add_argument("--days", type=int, default=7, help="Only transcripts modified in the last N days (0 = all)")
+    p_x.add_argument("--max-files", type=int, default=500, help="Scan at most N newest transcripts (0 = no cap)")
+    p_x.add_argument("--read-threshold", type=int, default=350, help="Lines above which an unwindowed Read counts as bloat")
+    p_x.add_argument("--idle-seconds", type=int, default=300, help="Idle gap that can expire the prompt cache")
+    p_x.add_argument("--top", type=int, default=5, help="Number of bloat offenders to list")
+    p_x.add_argument("--input-usd-per-mtok", type=float, default=3.0)
+    p_x.add_argument("--cache-write-usd-per-mtok", type=float, default=3.75)
+    p_x.add_argument("--cache-read-usd-per-mtok", type=float, default=0.30)
+    p_x.add_argument("--json", action="store_true", help="Emit machine-readable JSON")
+    p_x.add_argument("--no-upsell", action="store_true", help="Omit the product pointer line")
 
     args = parser.parse_args(argv)
+    if args.cmd == "xray":
+        from .xray import render_text, run_xray
+
+        try:
+            rep = run_xray(
+                args.path,
+                days=args.days,
+                max_files=args.max_files,
+                read_line_threshold=args.read_threshold,
+                idle_cliff_seconds=args.idle_seconds,
+                top_n=args.top,
+                input_usd_per_mtok=args.input_usd_per_mtok,
+                cache_write_usd_per_mtok=args.cache_write_usd_per_mtok,
+                cache_read_usd_per_mtok=args.cache_read_usd_per_mtok,
+            )
+        except FileNotFoundError as exc:
+            print(json.dumps({"ok": False, "error": str(exc)}))
+            return 2
+        if args.json:
+            print(json.dumps({"ok": True, **rep.to_dict(upsell=not args.no_upsell)}, indent=2))
+        else:
+            print(render_text(rep, upsell=not args.no_upsell))
+        return 0
     if args.cmd == "selftest":
         res = run_core_selftest()
         print(json.dumps(res, indent=2))

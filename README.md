@@ -32,6 +32,21 @@ git -c core.hooksPath=/dev/null -c protocol.file.allow=never clone --depth 1 <re
 iron-veil-core quarantine-repo ./sandbox
 ```
 
+### X-Ray Your Local Claude Code Transcripts (10-second, 100% offline)
+Find out where your context actually goes, without uploading anything. `xray` reads the JSONL transcripts Claude Code already keeps in `~/.claude/projects` and reports:
+- **Unwindowed file reads:** `Read` calls with no `limit` that pulled in more than 350 lines.
+- **Prompt-cache idle cliffs:** gaps longer than 5 minutes that were followed by a full cache-prefix re-write (more tokens written to the cache than read from it).
+- **Top 5 tool-output bloat offenders:** the largest tool results pushed into context. Only file basenames are shown; contents, shell commands, and full paths are never printed.
+- **Illustrative client-side waste** at configurable public list-price assumptions.
+
+```bash
+iron-veil-core xray                       # last 7 days of ~/.claude/projects
+iron-veil-core xray --days 30 --top 10    # wider window
+iron-veil-core xray path/to/session.jsonl --json --no-upsell
+```
+
+> `xray` is a client-side diagnostic only; it is **not a billing cap**. It cannot see server-side usage accounting or plan limits. Subscription plans are not billed per token, so the dollar figure is illustrative.
+
 ---
 
 ## Open-Core vs. Veristrux Pro Kits
@@ -40,6 +55,7 @@ iron-veil-core quarantine-repo ./sandbox
 | :--- | :---: | :---: | :---: |
 | Unicode Tag / Bidi / Hidden-HTML Sanitizer | Yes | Yes | Yes |
 | Priority-1 Repo & Git-Hook Quarantiner | Yes | Yes | Yes |
+| Offline Claude Code Transcript X-Ray (`xray`: read bloat + cache idle cliffs) | Yes | Yes | Yes |
 | **Real-Time `<5 ms` `PreToolUse` Firewall** (`Claude Code` + `Antigravity`) | — | **Yes** | **Yes** |
 | **Secret/Cookie Airgap + Exfil & `curl\|sh` RCE Block + Write Confinement** | — | **Yes** | **Yes** |
 | **Token Miser AST Symbol-Map Read Guard** (`Lstart-Lend` + 80L `[CHUNK]`) | — | **Yes** | **Yes** |

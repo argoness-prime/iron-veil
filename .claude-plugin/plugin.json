@@ -1,6 +1,6 @@
 {
   "name": "iron-veil",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Zero-dependency <5ms PreToolUse indirect prompt-injection sanitizer, repo trap quarantiner, and Token Miser AST guard for Claude Code.",
   "author": {
     "name": "Veristrux Inc.",
