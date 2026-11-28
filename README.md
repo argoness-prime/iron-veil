@@ -89,6 +89,8 @@ Maintained by **Veristrux Inc.** ([veristrux.com](https://veristrux.com/)).
 
 - **MIT License:** Pure Python 3.10+ stdlib, zero external dependencies, zero network calls.
 - **MCP Registry Identifier:** `mcp-name: io.github.argoness-prime/iron-veil`
+- **Official MCP Registry (`io.github.argoness-prime/iron-veil`):** [Live Registry Entry](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.argoness-prime%2Firon-veil/versions/latest) · [HOL Plugin Registry](https://hol.org/registry/plugins)
+- **Interactive Browser AST Symbol-Map & Cache-Curve Lab (0-signup, client-side):** https://veristrux.com/tokenczar-demo.html
 - **AST Symbol-Map Benchmark Reference:** [Standalone Python AST Mapper Gist](https://gist.github.com/argoness-prime/7a1a08eaaf97d0db4964b431fac3d878) · [1080p AST Windowing Demo](https://youtu.be/Zr55UqFz7aw) · [9:16 Short](https://www.youtube.com/shorts/rlzhbMHmoQ0)
 - **Full Veristrux Systems Catalog (ViewDrift UE 5.9, Token Czar v2.0 & Toolkits):** https://veristrux.com/
 - **Contact:** `argoness@veristrux.com`
