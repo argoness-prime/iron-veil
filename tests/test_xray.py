@@ -136,9 +136,11 @@ def test_render_has_upsell_and_disclaimer_and_no_upsell_flag(transcript: Path) -
     text = render_text(rep)
     assert text.rstrip().endswith("Client-side diagnostic only; not a billing cap.")
     assert UPSELL_LINES[0] in text
-    assert "https://argoness-prime.itch.io/iron-veil-token-miser-pro" in text
+    assert "https://veristrux.com/" in text
+    assert "$5" not in text
+    assert "itch.io" not in text
     quiet = render_text(rep, upsell=False)
-    assert "itch.io" not in quiet
+    assert "veristrux.com" not in quiet
     assert "not a billing cap" in quiet
 
 

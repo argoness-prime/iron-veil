@@ -1,12 +1,6 @@
 # Iron Veil (Open-Core)
 
-**Zero-dependency indirect prompt-injection sanitizer & Priority-1 untrusted repository trap quarantiner for AI coding agents.**
-
-<p align="center">
-  <img src="https://veristrux.com/media/tokenczar_v2_showcase.gif" alt="Token Czar & Iron Veil AST Windowing Demo" width="100%" />
-</p>
-
-> *Demo: Token Czar / Iron Veil AST Symbol-Map windowing (`2.92–3.97 ms`, `77.6%–92.2%` context reduction on 426–1,295 line test files). Local context-hygiene guard — not a provider spend cap. [Watch 1080p Demo](https://youtu.be/NMqtSxDWUho) · [YouTube Short](https://youtube.com/shorts/NjCFj6FedDU) · [Reproducible AST Benchmark Gist](https://gist.github.com/argoness-prime/7a1a08eaaf97d0db4964b431fac3d878)*
+**Zero-dependency indirect prompt-injection sanitizer, Priority-1 untrusted repository trap quarantiner, and offline Claude Code transcript `xray` auditor.**
 
 When you open an untrusted repository, GitHub issue, or scraped webpage inside **Claude Code**, **Google Antigravity**, or **Cursor**, hidden delivery vectors can hijack your agent before you read a single line of code:
 - **Priority-1 Repo Traps:** `.agents/hooks.json`, `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, and executable `.git/hooks/*` load at higher priority than global user settings.
@@ -32,6 +26,11 @@ git -c core.hooksPath=/dev/null -c protocol.file.allow=never clone --depth 1 <re
 iron-veil-core quarantine-repo ./sandbox
 ```
 
+### Sanitize Untrusted Issues, Diffs, or Scraped HTML
+```bash
+iron-veil-core scan-file issue.html --strip-html
+```
+
 ### X-Ray Your Local Claude Code Transcripts (10-second, 100% offline)
 Find out where your context actually goes, without uploading anything. `xray` reads the JSONL transcripts Claude Code already keeps in `~/.claude/projects` and reports:
 - **Unwindowed file reads:** `Read` calls with no `limit` that pulled in more than 350 lines.
@@ -47,23 +46,20 @@ iron-veil-core xray path/to/session.jsonl --json --no-upsell
 
 > `xray` is a client-side diagnostic only; it is **not a billing cap**. It cannot see server-side usage accounting or plan limits. Subscription plans are not billed per token, so the dollar figure is illustrative.
 
----
+## Verification
 
-## Open-Core vs. Veristrux Pro Kits
+Run the built-in 11-vector sanitizer and repo-trap self-test or the full `pytest` suite locally with zero network calls:
 
-| Capability | `iron-veil-core` (MIT Free) | **Iron Veil + Token Miser Pro Kit ($5)** | **All-Access Agent & Silicon Bundle ($12)** |
-| :--- | :---: | :---: | :---: |
-| Unicode Tag / Bidi / Hidden-HTML Sanitizer | Yes | Yes | Yes |
-| Priority-1 Repo & Git-Hook Quarantiner | Yes | Yes | Yes |
-| Offline Claude Code Transcript X-Ray (`xray`: read bloat + cache idle cliffs) | Yes | Yes | Yes |
-| **Real-Time `<5 ms` `PreToolUse` Firewall** (`Claude Code` + `Antigravity`) | — | **Yes** | **Yes** |
-| **Secret/Cookie Airgap + Exfil & `curl\|sh` RCE Block + Write Confinement** | — | **Yes** | **Yes** |
-| **Token Miser AST Symbol-Map Read Guard** (`Lstart-Lend` + 80L `[CHUNK]`) | — | **Yes** | **Yes** |
-| **Full 19-Vector Firewall + Sanitizer Benchmark (`selftest`)** | 11 Core | **19/19 Full** | **19/19 Full** |
-| **Hybrid Silicon Local-AI Tuner** (GPU VRAM + DDR5 `--n-cpu-moe` + TTFT/TPS bench) | — | — | **Yes** |
+```bash
+iron-veil-core selftest
+pytest -q
+```
 
-Get the instant commercial packages & free desktop utility:
-- **Iron Veil + Token Miser Pro Kit (`$5` one-time, instant ZIP via `itch.io` MoR):** https://argoness-prime.itch.io/iron-veil-token-miser-pro
-- **Free Token Czar v2.0 Lite Desktop Utility (`.exe`, 0 Pro bytes):** https://github.com/argoness-prime/veristrux/releases/tag/tokenczar-v2.0.0
-- **Storefront, Hybrid Silicon Tuner ($9) & All-Access Bundle ($12):** https://veristrux.com/
+## Architecture & Companion Tools
+
+Maintained by **Veristrux Inc.** ([veristrux.com](https://veristrux.com/)).
+
+- **MIT License:** Pure Python 3.10+ stdlib, zero external dependencies, zero network calls.
+- **AST Symbol-Map Benchmark Reference:** [Standalone Python AST Mapper Gist](https://gist.github.com/argoness-prime/7a1a08eaaf97d0db4964b431fac3d878)
+- **Full Veristrux Systems Catalog (ViewDrift UE 5.9, Token Czar v2.0 & Toolkits):** https://veristrux.com/
 - **Contact:** `argoness@veristrux.com`

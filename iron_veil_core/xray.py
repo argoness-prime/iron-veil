@@ -28,8 +28,7 @@ DEFAULT_IDLE_CLIFF_SECONDS = 300
 CHARS_PER_TOKEN = 4.0
 
 UPSELL_LINES = (
-    "Auto-window reads in <5 ms: Free Lite .exe -> https://veristrux.com/ | "
-    "$5 Pro Hook Source ZIP -> https://argoness-prime.itch.io/iron-veil-token-miser-pro",
+    "Local engineering tools & docs: https://veristrux.com/",
     "Client-side diagnostic only; not a billing cap.",
 )
 DISCLAIMER_LINE = "Client-side diagnostic only; not a billing cap."
