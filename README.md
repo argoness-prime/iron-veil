@@ -89,6 +89,6 @@ Maintained by **Veristrux Inc.** ([veristrux.com](https://veristrux.com/)).
 
 - **MIT License:** Pure Python 3.10+ stdlib, zero external dependencies, zero network calls.
 - **MCP Registry Identifier:** `mcp-name: io.github.argoness-prime/iron-veil`
-- **AST Symbol-Map Benchmark Reference:** [Standalone Python AST Mapper Gist](https://gist.github.com/argoness-prime/7a1a08eaaf97d0db4964b431fac3d878)
+- **AST Symbol-Map Benchmark Reference:** [Standalone Python AST Mapper Gist](https://gist.github.com/argoness-prime/7a1a08eaaf97d0db4964b431fac3d878) · [1080p AST Windowing Demo](https://youtu.be/Zr55UqFz7aw) · [9:16 Short](https://www.youtube.com/shorts/rlzhbMHmoQ0)
 - **Full Veristrux Systems Catalog (ViewDrift UE 5.9, Token Czar v2.0 & Toolkits):** https://veristrux.com/
 - **Contact:** `argoness@veristrux.com`
