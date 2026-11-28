@@ -41,7 +41,7 @@ iron-veil-core quarantine-repo ./sandbox
 | **Hybrid Silicon Local-AI Tuner** (GPU VRAM + DDR5 `--n-cpu-moe` + TTFT/TPS bench) | — | — | **Yes** |
 
 Get the commercial Pro packages & same-day engineering rescue:
-- **Storefront & Same-Day $5 Express Bugfix Desk:** https://argoness-prime.github.io/veristrux/
+- **Storefront & Same-Day $5 Express Bugfix Desk:** https://veristrux.com/
 - **Iron Veil + Token Miser Pro Kit ($5):** https://www.paypal.com/ncp/payment/BCJT85K2YHUYS
 - **Hybrid Silicon Local-AI Tuner ($9):** https://www.paypal.com/ncp/payment/X9AGQCZUJF7R6
 - **All-Access Agent & Silicon Bundle ($12):** https://www.paypal.com/ncp/payment/FTR3BGX8V6LEJ
