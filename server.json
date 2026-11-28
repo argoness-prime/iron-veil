@@ -10,10 +10,9 @@
   "version": "1.3.0",
   "packages": [
     {
-      "registryType": "pypi",
-      "identifier": "iron-veil-core",
-      "version": "1.3.0",
-      "runtimeHint": "uvx",
+      "registryType": "mcpb",
+      "identifier": "https://github.com/argoness-prime/iron-veil/releases/download/v1.3.0/iron-veil-mcp-1.3.0.mcpb",
+      "fileSha256": "0bf3cd5334eaa4acf54e0db76a621eec92d92e4577ff129ab56370d4aadc8efc",
       "transport": {
         "type": "stdio"
       }
