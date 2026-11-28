@@ -88,6 +88,7 @@ pytest -q
 Maintained by **Veristrux Inc.** ([veristrux.com](https://veristrux.com/)).
 
 - **MIT License:** Pure Python 3.10+ stdlib, zero external dependencies, zero network calls.
+- **Glama MCP Directory:** [![Glama MCP Score](https://glama.ai/mcp/servers/argoness-prime/iron-veil/badges/score.svg)](https://glama.ai/mcp/servers/argoness-prime/iron-veil)
 - **MCP Registry Identifier:** `mcp-name: io.github.argoness-prime/iron-veil`
 - **Official MCP Registry (`io.github.argoness-prime/iron-veil`):** [Live Registry Entry](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.argoness-prime%2Firon-veil/versions/latest) · [HOL Plugin Registry](https://hol.org/registry/plugins)
 - **Interactive Browser AST Symbol-Map & Cache-Curve Lab (0-signup, client-side):** https://veristrux.com/tokenczar-demo.html
