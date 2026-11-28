@@ -12,6 +12,9 @@ When you open an untrusted repository, GitHub issue, or scraped webpage inside *
 ## Quickstart
 
 ```bash
+# Run instantly via uvx (zero clone required):
+uvx --from https://github.com/argoness-prime/iron-veil/releases/download/v1.3.0/iron_veil_core-1.3.0-py3-none-any.whl iron-veil-core selftest
+
 # Install as an Agent Skill (Claude Code, Cursor, Codex, Antigravity):
 npx skills add argoness-prime/iron-veil
 
