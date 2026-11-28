@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.argoness-prime/iron-veil",
+  "title": "Iron Veil",
+  "description": "Zero-dependency prompt-injection sanitizer, repo trap quarantiner, and transcript xray auditor.",
+  "repository": {
+    "url": "https://github.com/argoness-prime/iron-veil",
+    "source": "github"
+  },
+  "version": "1.3.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "iron-veil-core",
+      "version": "1.3.0",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

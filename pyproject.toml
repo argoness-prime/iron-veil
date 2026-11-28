@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "iron-veil-core"
-version = "1.2.0"
-description = "Open-source indirect prompt-injection sanitizer, Priority-1 repository trap quarantiner, and offline Claude Code transcript xray auditor."
+version = "1.3.0"
+description = "Zero-dependency indirect prompt-injection sanitizer, Priority-1 repo trap quarantiner, offline Claude Code transcript xray auditor, and stdio MCP server."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "Veristrux Inc.", email = "argoness@veristrux.com"}]
-keywords = ["ai-security", "prompt-injection", "claude-code", "antigravity", "llm-security"]
+keywords = ["ai-security", "prompt-injection", "claude-code", "mcp", "mcp-server", "llm-security"]
 
 [project.urls]
 Homepage = "https://veristrux.com/"
@@ -18,6 +18,7 @@ Repository = "https://github.com/argoness-prime/iron-veil"
 
 [project.scripts]
 iron-veil-core = "iron_veil_core.cli:main"
+iron-veil-mcp = "iron_veil_core.mcp_server:main"
 
 [tool.setuptools.packages.find]
 include = ["iron_veil_core*"]

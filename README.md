@@ -1,8 +1,8 @@
 # Iron Veil (Open-Core)
 
-**Zero-dependency indirect prompt-injection sanitizer, Priority-1 untrusted repository trap quarantiner, and offline Claude Code transcript `xray` auditor.**
+**Zero-dependency indirect prompt-injection sanitizer, Priority-1 untrusted repository trap quarantiner, offline Claude Code transcript `xray` auditor, and local `stdio` MCP server.**
 
-When you open an untrusted repository, GitHub issue, or scraped webpage inside **Claude Code**, **Google Antigravity**, or **Cursor**, hidden delivery vectors can hijack your agent before you read a single line of code:
+When you open an untrusted repository, GitHub issue, or scraped webpage inside **Claude Code**, **Google Antigravity**, **Cursor**, or any **Model Context Protocol (MCP)** client, hidden delivery vectors can hijack your agent before you read a single line of code:
 - **Priority-1 Repo Traps:** `.agents/hooks.json`, `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules`, and executable `.git/hooks/*` load at higher priority than global user settings.
 - **Invisible Unicode Smuggling:** Unicode Tag ASCII blocks (`U+E0000`–`U+E007F`), Trojan-Source bidirectional overrides (`CVE-2021-42574`), and zero-width steganography.
 - **Hidden DOM Lures:** `display:none`, `opacity:0`, `font-size:0`, `aria-hidden="true"`, HTML comments, and `<script type="application/ld+json">` payloads.
@@ -12,12 +12,37 @@ When you open an untrusted repository, GitHub issue, or scraped webpage inside *
 ## Quickstart
 
 ```bash
-# Install via Claude Code Plugin Marketplace:
+# Install as an Agent Skill (Claude Code, Cursor, Codex, Antigravity):
+npx skills add argoness-prime/iron-veil
+
+# Or install via Claude Code Plugin Marketplace:
 /plugin marketplace add argoness-prime/iron-veil
 
 # Or install directly via pip:
 pip install git+https://github.com/argoness-prime/iron-veil.git
 iron-veil-core selftest
+```
+
+### Run as a Local MCP Server (`stdio`, Zero Dependencies)
+
+`iron-veil-core mcp` (or `iron-veil-mcp`) exposes `sanitize_untrusted_text`, `quarantine_repo_traps`, and `xray_transcripts` over standard JSON-RPC 2.0 `stdio` with zero external runtime packages:
+
+```bash
+# Register in Claude Code:
+claude mcp add iron-veil -- iron-veil-core mcp
+```
+
+Or add to `.mcp.json` / `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "iron-veil": {
+      "command": "iron-veil-core",
+      "args": ["mcp"]
+    }
+  }
+}
 ```
 
 ### Quarantine an External Repo Before Opening It in Your Agent
@@ -60,6 +85,7 @@ pytest -q
 Maintained by **Veristrux Inc.** ([veristrux.com](https://veristrux.com/)).
 
 - **MIT License:** Pure Python 3.10+ stdlib, zero external dependencies, zero network calls.
+- **MCP Registry Identifier:** `mcp-name: io.github.argoness-prime/iron-veil`
 - **AST Symbol-Map Benchmark Reference:** [Standalone Python AST Mapper Gist](https://gist.github.com/argoness-prime/7a1a08eaaf97d0db4964b431fac3d878)
 - **Full Veristrux Systems Catalog (ViewDrift UE 5.9, Token Czar v2.0 & Toolkits):** https://veristrux.com/
 - **Contact:** `argoness@veristrux.com`

@@ -3,4 +3,4 @@
 from .sanitizer import SanitizeResult, quarantine_untrusted_repo, scrub_untrusted_text
 
 __all__ = ["SanitizeResult", "quarantine_untrusted_repo", "scrub_untrusted_text"]
-__version__ = "1.2.0"
+__version__ = "1.3.0"

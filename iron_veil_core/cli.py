@@ -86,8 +86,13 @@ def main(argv: list[str] | None = None) -> int:
     p_x.add_argument("--cache-read-usd-per-mtok", type=float, default=0.30)
     p_x.add_argument("--json", action="store_true", help="Emit machine-readable JSON")
     p_x.add_argument("--no-upsell", action="store_true", help="Omit the product pointer line")
+    sub.add_parser("mcp", help="Run zero-dependency Model Context Protocol (MCP) JSON-RPC 2.0 server over stdio")
 
     args = parser.parse_args(argv)
+    if args.cmd == "mcp":
+        from .mcp_server import serve_stdio
+
+        return serve_stdio()
     if args.cmd == "xray":
         from .xray import render_text, run_xray
 
