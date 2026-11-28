@@ -12,7 +12,7 @@
     {
       "registryType": "mcpb",
       "identifier": "https://github.com/argoness-prime/iron-veil/releases/download/v1.3.0/iron-veil-mcp-1.3.0.mcpb",
-      "fileSha256": "0bf3cd5334eaa4acf54e0db76a621eec92d92e4577ff129ab56370d4aadc8efc",
+      "fileSha256": "8bb47bc2642a5548412af2652609b938500fcbebbd5ffea549019a6ba4a58214",
       "transport": {
         "type": "stdio"
       }
